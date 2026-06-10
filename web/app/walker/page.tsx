@@ -28,9 +28,14 @@ export default function WalkerDashboard() {
         const response = await fetch("https://petapp-fj1j.onrender.com/walk-requests");
         if (response.ok) {
           const data = await response.json();
-          // Sadece 'PENDING' (Bekleyen) statüsündeki ilanları filtreleyip gösteriyoruz
-          const pendingRequests = data.filter((req: WalkRequest) => req.status === "PENDING");
-          setRequests(pendingRequests);
+          // HATA DÜZELTMESİ: API'den gelen verinin gerçekten bir liste (Array) olduğunu kontrol ediyoruz. 
+          // Aksi takdirde filter() fonksiyonu uygulamayı çökertir.
+          if (Array.isArray(data)) {
+            const pendingRequests = data.filter((req: WalkRequest) => req.status === "PENDING");
+            setRequests(pendingRequests);
+          } else {
+            setRequests([]);
+          }
         }
       } catch (error) {
         console.error("İlanlar çekilirken hata oluştu:", error);
