@@ -32,7 +32,7 @@ export default function AdminDashboard() {
 
   const fetchPendingVets = async () => {
     try {
-      const response = await fetch("http://localhost:8000/admin/pending-vets");
+      const response = await fetch("https://petapp-fj1j.onrender.com/admin/pending-vets");
       if (response.ok) {
         const data = await response.json();
         setPendingVets(data);
@@ -45,7 +45,7 @@ export default function AdminDashboard() {
   const handleAction = async (id: number, action: "APPROVE" | "REJECT") => {
     if (action === "APPROVE") {
       try {
-        const response = await fetch(`http://localhost:8000/admin/approve-vet/${id}`, {
+        const response = await fetch(`https://petapp-fj1j.onrender.com/admin/approve-vet/${id}`, {
           method: "PUT",
         });
 
@@ -59,7 +59,7 @@ export default function AdminDashboard() {
     } else {
       // YENİ: REDDETME İŞLEMİ (GERÇEK VERİTABANI BAĞLANTISI İLE SİLME)
       try {
-        const response = await fetch(`http://localhost:8000/admin/reject-vet/${id}`, {
+        const response = await fetch(`https://petapp-fj1j.onrender.com/admin/reject-vet/${id}`, {
           method: "DELETE", // Python'daki delete metodunu tetikliyoruz
         });
 
@@ -125,7 +125,7 @@ export default function AdminDashboard() {
                   <td className="px-6 py-4">
                     {/* YENİ: Gerçek dosya yolunu Python'dan çekip ekranda açan link */}
                     <a 
-                      href={`http://localhost:8000${vet.diploma_url}`} 
+                      href={`https://petapp-fj1j.onrender.com${vet.diploma_url}`} 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-blue-600 text-sm font-bold hover:underline flex items-center gap-1 cursor-pointer inline-block"

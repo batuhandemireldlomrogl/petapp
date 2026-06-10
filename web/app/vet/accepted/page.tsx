@@ -32,7 +32,7 @@ export default function AcceptedAppointments() {
         }
 
         // 2. Python backend'den tüm randevuları getir
-        const response = await fetch("http://localhost:8000/appointments");
+        const response = await fetch("https://petapp-fj1j.onrender.com/appointments");
         if (response.ok) {
           const allData = await response.json();
           // 3. Sadece hafızadaki ID'ler ile eşleşen randevuları filtrele

@@ -25,7 +25,7 @@ export default function VetDashboard() {
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await fetch("http://localhost:8000/appointments");
+        const response = await fetch("https://petapp-fj1j.onrender.com/appointments");
         if (response.ok) {
           const data = await response.json();
           // Önceden onaylanmış randevuları ana ekranda gizlemek için filtreliyoruz

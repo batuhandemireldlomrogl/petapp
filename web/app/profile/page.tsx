@@ -26,7 +26,7 @@ export default function ProfilePage() {
       }
 
       try {
-        const response = await fetch(`http://localhost:8000/users/${storedUserId}`);
+        const response = await fetch(`https://petapp-fj1j.onrender.com/users/${storedUserId}`);
         if (response.ok) {
           const data = await response.json();
           setName(data.full_name);
@@ -56,7 +56,7 @@ export default function ProfilePage() {
     const storedUserId = localStorage.getItem("userId");
 
     try {
-      const response = await fetch(`http://localhost:8000/users/${storedUserId}`, {
+      const response = await fetch(`https://petapp-fj1j.onrender.com/users/${storedUserId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

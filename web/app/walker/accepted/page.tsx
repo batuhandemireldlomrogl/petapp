@@ -31,7 +31,7 @@ export default function AcceptedJobs() {
         }
 
         // 2. Python backend'den tüm ilanları getir
-        const response = await fetch("http://localhost:8000/walk-requests");
+        const response = await fetch("https://petapp-fj1j.onrender.com/walk-requests");
         if (response.ok) {
           const allData = await response.json();
           // 3. Sadece hafızadaki ID'ler ile eşleşen ilanları filtrele

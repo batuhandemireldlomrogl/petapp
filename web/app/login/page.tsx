@@ -32,7 +32,7 @@ export default function LoginPage() {
 
     try {
       // YENİ: Python arka planına (mutfağa) giriş bilgilerini gönderiyoruz
-      const response = await fetch("http://localhost:8000/login", {
+      const response = await fetch("https://petapp-fj1j.onrender.com/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

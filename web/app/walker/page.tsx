@@ -25,7 +25,7 @@ export default function WalkerDashboard() {
   useEffect(() => {
     const fetchWalkRequests = async () => {
       try {
-        const response = await fetch("http://localhost:8000/walk-requests");
+        const response = await fetch("https://petapp-fj1j.onrender.com/walk-requests");
         if (response.ok) {
           const data = await response.json();
           // Sadece 'PENDING' (Bekleyen) statüsündeki ilanları filtreleyip gösteriyoruz

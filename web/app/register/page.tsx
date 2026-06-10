@@ -38,7 +38,7 @@ export default function RegisterPage() {
         const fileFormData = new FormData();
         fileFormData.append("file", diplomaFile);
 
-        const uploadResponse = await fetch("http://localhost:8000/upload", {
+        const uploadResponse = await fetch("https://petapp-fj1j.onrender.com/upload", {
           method: "POST",
           body: fileFormData,
         });
@@ -61,7 +61,7 @@ export default function RegisterPage() {
         diploma_url: uploadedDiplomaUrl
       };
 
-      const response = await fetch("http://localhost:8000/register", {
+      const response = await fetch("https://petapp-fj1j.onrender.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

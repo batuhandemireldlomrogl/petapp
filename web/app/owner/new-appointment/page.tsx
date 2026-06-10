@@ -39,7 +39,7 @@ export default function NewAppointmentPage() {
 
     try {
       // Backend'deki Randevu köprümüze (API) veriyi yolluyoruz
-      const response = await fetch("http://localhost:8000/appointments", {
+      const response = await fetch("https://petapp-fj1j.onrender.com/appointments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody),

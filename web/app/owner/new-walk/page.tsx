@@ -37,7 +37,7 @@ export default function NewWalkRequestPage() {
 
     try {
       // Backend'deki Yürüyüş İlanı köprümüze (API) veriyi yolluyoruz
-      const response = await fetch("http://localhost:8000/walk-requests", {
+      const response = await fetch("https://petapp-fj1j.onrender.com/walk-requests", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(requestBody),
