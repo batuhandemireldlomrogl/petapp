@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useState, Suspense } from "react"; // YENİ: Suspense eklendi
 
 const formBgUrl = "https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2";
 
-export default function RegisterPage() {
+// Asıl kayıt formunu bu alt bileşene taşıdık
+function RegisterContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const role = searchParams.get("role") || "owner";
@@ -18,7 +19,6 @@ export default function RegisterPage() {
   const [diplomaFile, setDiplomaFile] = useState<File | null>(null);
   const [errorMsg, setErrorMsg] = useState("");
   
-  // YENİ: Şifreyi göster/gizle durumunu tutan hafıza
   const [showPassword, setShowPassword] = useState(false);
 
   const roleNames: Record<string, string> = {
@@ -166,7 +166,6 @@ export default function RegisterPage() {
 
           <div>
             <label className="block text-xs font-bold text-slate-800 mb-1">Şifre Belirleyin</label>
-            {/* YENİ: Şifre kutusunu sarmalayan relative div ve göz ikonu */}
             <div className="relative">
               <input 
                 type={showPassword ? "text" : "password"} 
@@ -200,5 +199,18 @@ export default function RegisterPage() {
         </p>
       </div>
     </div>
+  );
+}
+
+// Vercel'in hata vermesini engelleyen asıl sarmalayıcı (Dışa aktarım)
+export default function RegisterPage() {
+  return (
+    <Suspense fallback={
+      <div className="flex min-h-[91vh] items-center justify-center bg-slate-900 text-white">
+        <p className="text-xl font-bold animate-pulse">Sayfa Yükleniyor...</p>
+      </div>
+    }>
+      <RegisterContent />
+    </Suspense>
   );
 }
