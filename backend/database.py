@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # SQLite veritabanı dosyamızın adı (Projeyi çalıştırdığımızda otomatik olarak oluşacak)
-SQLALCHEMY_DATABASE_URL = "sqlite:///./petapp.db"
+SQLALCHEMY_DATABASE_URL = "postgresql://neondb_owner:npg_pcnx5I2fKiYS@ep-icy-surf-aqgfb9j5.c-8.us-east-1.aws.neon.tech/neondb?sslmode=require"
 
 # Veritabanı motorunu (engine) oluşturuyoruz
 engine = create_engine(
