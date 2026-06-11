@@ -37,7 +37,7 @@ app.add_middleware(
 
     CORSMiddleware,
 
-    allow_origins=["http://localhost:3000"],  # Sadece Next.js'in (3000 portu) bağlanmasına izin ver
+    allow_origins=["*"],  # Sadece Next.js'in (3000 portu) bağlanmasına izin ver
 
     allow_credentials=True,
 
